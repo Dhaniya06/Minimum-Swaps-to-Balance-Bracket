@@ -1,0 +1,24 @@
+import java.util.Scanner;
+public class main{
+    public static void main(String[] arg){
+        Scanner sc=new Scanner(System.in);
+        String s=sc.nextLine();
+        if(s.length()%2!=0){
+            System.out.println("Invalid input");
+            return;
+        }
+        int balance=0;
+        int maxImbalance=0;
+        for(char ch:s.toCharArray()){
+            if(ch=='['){
+                balance++;
+            }
+            else if(ch==']'){
+                balance--;
+            }
+            maxImbalance=Math.max(maxImbalance,-balance);
+        }
+        int swaps=(maxImbalance+1)/2;
+        System.out.println(swaps);
+    }
+}
